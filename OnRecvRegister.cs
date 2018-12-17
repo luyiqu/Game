@@ -43,30 +43,34 @@ namespace Backend.Network
 
                 Console.WriteLine(cmd1.CommandText);
                 var reader1 = cmd1.ExecuteReader();
-
+                var result = reader1.Read();
                 conn.Close();
-
-                if (reader1.Read())
+                if (result)
                 {
                     ClientTipInfo(channel, "Username already exists");
+                    
                 }
+                
                 else
                 {
 
-                    NpgsqlConnection conn2 = new NpgsqlConnection(connString);
-                    conn2.Open();
+                        
+                    NpgsqlConnection conn3 = new NpgsqlConnection(connString);
+                    conn3.Open();
 
-                    var cmd2 = new NpgsqlCommand(string.Format("INSERT INTO player(username,password) VALUES('{0}','{1}')", username, password), conn2);
 
-                    Console.WriteLine(cmd2.CommandText);
-                    var insert2 = cmd2.ExecuteNonQuery();
-                    Console.WriteLine(insert2);
-                    if (insert2 > 0)
+                    //这里还需要插入playerID
+                    var cmd3 = new NpgsqlCommand(string.Format("INSERT INTO player(username,password,working_value,luck_value,attack_value,gold_coin,silver_coin,hunting)VALUES('{0}','{1}',100,100,100,33,100,FALSE)", username, password), conn3);
+
+                    Console.WriteLine(cmd3.CommandText);
+                    var insert3 = cmd3.ExecuteNonQuery();
+                    Console.WriteLine(insert3);
+                    if (insert3 > 0)
                     {
                         ClientTipInfo(channel, "TODO: write register info to database");
                     }
 
-                    conn2.Close();
+                    conn3.Close();
 
                 }
 
