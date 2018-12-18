@@ -27,7 +27,7 @@ namespace Common
         S_PLAYER_DIE,
         S_TIP_INFO,
         S_ATTRIBUTE,
-        S_TREASURE,    // 显示玩家所拥有的宝物
+        S_TREASURE,    // 玩家所拥有的宝物
         SEND,
 
         CBEGIN,
