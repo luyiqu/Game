@@ -31,7 +31,7 @@ namespace Backend.Network
              
 
             // Host info
-            String connString = "Host=localhost;Port=5432;Username=postgres;Password=592761jy.;Database=Game";
+            String connString = "Host=localhost;Port=5432;Username=postgres;Password=592761jy.;Database=game";
 
             NpgsqlConnection conn = new NpgsqlConnection(connString);
             conn.Open();
@@ -71,13 +71,23 @@ namespace Backend.Network
                     response1.silver_coin = reader.GetInt32(6);
                     response1.hunting = reader.GetBoolean(7);
 
-                    Console.WriteLine(response1.player_id);
-                    Console.WriteLine(response1.working_value);
-                    Console.WriteLine(response1.luck_value);
-                    Console.WriteLine(response1.attack_value);
-                    Console.WriteLine(response1.gold_coin);
-                    Console.WriteLine(response1.silver_coin);
-                    Console.WriteLine(response1.hunting);
+                    //Console.WriteLine(response1.player_id);
+                    //Console.WriteLine(response1.working_value);
+                    //Console.WriteLine(response1.luck_value);
+                    //Console.WriteLine(response1.attack_value);
+                    //Console.WriteLine(response1.gold_coin);
+                    //Console.WriteLine(response1.silver_coin);
+                    //Console.WriteLine(response1.hunting);
+
+                    BEGlobal.player_id = response1.player_id;
+                    BEGlobal.attack_value = response1.attack_value;
+                    BEGlobal.gold_coin = response1.gold_coin;
+                    BEGlobal.silver_coin = response1.silver_coin;
+                    BEGlobal.hunting = response1.hunting;
+                    BEGlobal.luck_value = response1.luck_value;
+                    BEGlobal.working_value = response1.working_value;
+
+       
 
                     Console.WriteLine(password);
                     ClientTipInfo(channel, "Welcome to the 3d Gamekit");
