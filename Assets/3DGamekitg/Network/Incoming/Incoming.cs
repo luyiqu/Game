@@ -34,7 +34,8 @@ namespace Gamekit3D.Network
             register.Register(Command.S_PLAYER_DIE, OnRecvPlayerDie);
             register.Register(Command.S_PLAYER_RESPAWN, OnRecvPlayerReSpawn);
             register.Register(Command.S_ATTRIBUTE, OnRecvAttribute);
-             register.Register(Command.S_TREASURE, OnRecvTreasure)
+            register.Register(Command.S_TREASURE, OnRecvTreasure);
+
             // DEBUG ...
             register.Register(Command.S_FIND_PATH, OnRecvFindPath);
         }
