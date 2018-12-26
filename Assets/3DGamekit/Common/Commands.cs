@@ -27,7 +27,7 @@ namespace Common
         S_PLAYER_DIE,
         S_TIP_INFO,
         S_ATTRIBUTE,
-        S_TREASURE,    // 玩家所拥有的宝物
+        S_TREASURE,    // 显示玩家所拥有的宝物
         SEND,
 
         CBEGIN,
@@ -41,6 +41,8 @@ namespace Common
         C_POSITION_REVISE,
         C_ENEMY_CLOSING,
         C_DAMAGE,
+        C_WEAR,
+        C_PUTOFF,
         CEND,
 
         DEBUGGING, // THE FOLLOWING MESSEGES ARE FOR DEBUGGING
