@@ -20,17 +20,15 @@ namespace Gamekit3D.Network
             {
                 Assets._3DGamekit.mycommon.name_category.Add(kvp.Key, kvp.Value);
             }
-
-            foreach (KeyValuePair<string, string> kvp in msg.name_status)
-            {
-                Assets._3DGamekit.mycommon.name_status.Add(kvp.Key, kvp.Value);
-            }
             foreach (KeyValuePair<string, int> kvp in msg.name_value)
             {
                 Assets._3DGamekit.mycommon.name_value.Add(kvp.Key, kvp.Value);
             }
-
-
+            foreach(KeyValuePair<string,status_count>kvp in msg.name_status_count)
+            {
+                Assets._3DGamekit.mycommon.name_status_count.Add(kvp.Key,kvp.Value);
+            }
+            
 
             //NetworkEntity target = networkEntities[msg.entityId];
             //target.behavior.Die();
