@@ -43,6 +43,8 @@ namespace Common
         C_DAMAGE,
         C_WEAR,
         C_PUTOFF,
+        C_SELL,
+        C_UNSELL,
         CEND,
 
         DEBUGGING, // THE FOLLOWING MESSEGES ARE FOR DEBUGGING
