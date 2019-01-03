@@ -17,7 +17,7 @@ public class InventoryUI : MonoBehaviour
     public TextMeshProUGUI Value;
     public TextMeshProUGUI total_count;
     public TextMeshProUGUI treasure_name;
-
+    public TextMeshProUGUI Inventory_Count; 
     public static  Dictionary<string, GameObject> treasure_GameObject = new Dictionary<string, GameObject>();
     public int test = 0;
 
@@ -32,8 +32,8 @@ public class InventoryUI : MonoBehaviour
     {
         PlayerMyController.Instance.EnabledWindowCount++;
         int capacity = PlayerMyController.Instance.InventoryCapacity;
-        int count = PlayerMyController.Instance.Inventory.Count;
-        int count2 = 0;
+        //int count = PlayerMyController.Instance.Inventory.Count;
+        mycommon.count2 = 0;
 
         foreach (var kv in mycommon.name_status_count)
         {
@@ -92,7 +92,7 @@ public class InventoryUI : MonoBehaviour
 
                 cloned.SetActive(true);
                 cloned.transform.SetParent(InventoryGridContent.transform, false);
-                count2++;
+                mycommon.count2 += mycommon.name_status_count[kv.Key].wear + mycommon.name_status_count[kv.Key].inventory;
             }
 
 
@@ -100,7 +100,7 @@ public class InventoryUI : MonoBehaviour
 
         test++;
 
-
+        Inventory_Count.SetText(mycommon.count2.ToString()+"/40", true);
         //foreach (var kv in PlayerMyController.Instance.Inventory)
         //{
         //    GameObject cloned = GameObject.Instantiate(InventoryCell);
@@ -121,12 +121,12 @@ public class InventoryUI : MonoBehaviour
         //}
 
         
-        for (int i = 0; i < capacity - count2; i++)
-        {
-            GameObject cloned = GameObject.Instantiate(InventoryCell);
-            cloned.SetActive(true);
-            cloned.transform.SetParent(InventoryGridContent.transform, false);
-        }
+        //for (int i = 0; i < capacity - count2; i++)
+        //{
+        //    GameObject cloned = GameObject.Instantiate(InventoryCell);
+        //    cloned.SetActive(true);
+        //    cloned.transform.SetParent(InventoryGridContent.transform, false);
+        //}
     }
 
     private void OnDisable()
