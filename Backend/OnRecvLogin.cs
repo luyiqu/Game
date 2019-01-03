@@ -79,13 +79,13 @@ namespace Backend.Network
                     //Console.WriteLine(response1.silver_coin);
                     //Console.WriteLine(response1.hunting);
 
-                    BEGlobal.player_id = response1.player_id;
-                    BEGlobal.attack_value = response1.attack_value;
-                    BEGlobal.gold_coin = response1.gold_coin;
-                    BEGlobal.silver_coin = response1.silver_coin;
-                    BEGlobal.hunting = response1.hunting;
-                    BEGlobal.luck_value = response1.luck_value;
-                    BEGlobal.working_value = response1.working_value;
+                    //BEGlobal.player_id = response1.player_id;
+                    //BEGlobal.attack_value = response1.attack_value;
+                    //BEGlobal.gold_coin = response1.gold_coin;
+                    //BEGlobal.silver_coin = response1.silver_coin;
+                    //BEGlobal.hunting = response1.hunting;
+                    //BEGlobal.luck_value = response1.luck_value;
+                    //BEGlobal.working_value = response1.working_value;
 
        
 
