@@ -10,6 +10,6 @@ namespace Common
         public string old_treasure;  //如果脱下了原来的，就也要原来的treasure_name,否则为null
         public string treasure_attribute;
         public int treasure_value;
-        
+        public int player_id;
     }
 }
