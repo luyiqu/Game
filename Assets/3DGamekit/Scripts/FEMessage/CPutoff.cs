@@ -9,6 +9,6 @@ namespace Common
         public string old_treasure;  //穿上的treasure
         public string treasure_attribute;
         public int treasure_value;
-
+        public int player_id;
     }
 }
