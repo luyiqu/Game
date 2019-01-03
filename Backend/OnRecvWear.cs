@@ -23,7 +23,7 @@ namespace Backend.Network
             Console.WriteLine("数据库连接成功");
 
 
-            var cmd = new NpgsqlCommand(string.Format("UPDATE owning SET status = 'wear' WHERE owner_id = '{0}' AND treasure_id IN (SELECT treasure_id FROM treasure WHERE name = '{1}')", BEGlobal.player_id,new_treasure), conn);
+            var cmd = new NpgsqlCommand(string.Format("UPDATE owning SET status = 'wear' WHERE owner_id = '{0}' AND treasure_id IN (SELECT treasure_id FROM treasure WHERE name = '{1}')", request.player_id,new_treasure), conn);
 
             Console.WriteLine(cmd.CommandText);
 
@@ -39,7 +39,7 @@ namespace Backend.Network
 
             if (request.treasure_attribute == "equipment" || request.treasure_attribute == "elixir") 
             {
-                var cmd5 = new NpgsqlCommand(string.Format("UPDATE player SET attack_value = {0} WHERE player_id = '{1}'", request.treasure_value, BEGlobal.player_id), conn5);
+                var cmd5 = new NpgsqlCommand(string.Format("UPDATE player SET attack_value = {0} WHERE player_id = '{1}'", request.treasure_value, request.player_id), conn5);
 
                 Console.WriteLine(cmd5.CommandText);
 
@@ -52,7 +52,7 @@ namespace Backend.Network
             }
             else if (request.treasure_attribute == "accessories")
             {
-                var cmd5 = new NpgsqlCommand(string.Format("UPDATE player SET luck_value = {0} WHERE player_id = '{1}'", request.treasure_value, BEGlobal.player_id), conn5);
+                var cmd5 = new NpgsqlCommand(string.Format("UPDATE player SET luck_value = {0} WHERE player_id = '{1}'", request.treasure_value, request.player_id), conn5);
 
                 Console.WriteLine(cmd5.CommandText);
 
@@ -63,7 +63,7 @@ namespace Backend.Network
 
             else if(request.treasure_attribute == "tool")
             {
-                var cmd5 = new NpgsqlCommand(string.Format("UPDATE player SET working_value =  {0} WHERE player_id = '{1}'", request.treasure_value, BEGlobal.player_id), conn5);
+                var cmd5 = new NpgsqlCommand(string.Format("UPDATE player SET working_value =  {0} WHERE player_id = '{1}'", request.treasure_value,request.player_id), conn5);
 
                 Console.WriteLine(cmd5.CommandText);
 
@@ -78,7 +78,7 @@ namespace Backend.Network
             {
                 NpgsqlConnection conn4 = new NpgsqlConnection(connString);
                 conn4.Open();
-                var cmd4 = new NpgsqlCommand(string.Format("DELETE FROM owning WHERE owner_id = '{0}' AND treasure_id IN (SELECT treasure_id FROM treasure WHERE name = '{1}')", BEGlobal.player_id, new_treasure), conn4);
+                var cmd4 = new NpgsqlCommand(string.Format("DELETE FROM owning WHERE owner_id = '{0}' AND treasure_id IN (SELECT treasure_id FROM treasure WHERE name = '{1}')", request.player_id, new_treasure), conn4);
                 Console.WriteLine(cmd4.CommandText);
                 var delete = cmd4.ExecuteNonQuery();
                 Console.WriteLine("删除成功");
@@ -98,7 +98,7 @@ namespace Backend.Network
                 Console.WriteLine("数据库连接成功");
 
 
-                var cmd3 = new NpgsqlCommand(string.Format("UPDATE owning SET status = 'inventory' WHERE owner_id = '{0}' AND treasure_id IN (SELECT treasure_id FROM treasure WHERE name = '{1}')", BEGlobal.player_id, old_treasure), conn3);
+                var cmd3 = new NpgsqlCommand(string.Format("UPDATE owning SET status = 'inventory' WHERE owner_id = '{0}' AND treasure_id IN (SELECT treasure_id FROM treasure WHERE name = '{1}')", request.player_id, old_treasure), conn3);
 
                 Console.WriteLine(cmd3.CommandText);
 
