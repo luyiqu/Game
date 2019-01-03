@@ -361,7 +361,7 @@ public class RoleUI : MonoBehaviour
         CPutoff msg = new CPutoff();
 
         status_count tmp;
-
+        msg.player_id = mycommon.player_id;
         string treasure_category;
         //得到脱下宝物的icon
         Sprite icon = GameObject.Find("ItemImage").GetComponent<Image>().sprite;
@@ -499,7 +499,7 @@ public class RoleUI : MonoBehaviour
         string treasure_category;
         msg.new_treasure = string.Empty;
         msg.old_treasure = string.Empty;
-
+        msg.player_id = mycommon.player_id;
         //得到new_treasure_name
         Sprite icon = GameObject.Find("ItemImage").GetComponent<Image>().sprite;
         foreach (string key in GetAllIcons.icons.Keys)
