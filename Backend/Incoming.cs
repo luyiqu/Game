@@ -25,7 +25,8 @@ namespace Backend.Network
             register.Register(Command.C_DAMAGE, OnRecvDamage);
             register.Register(Command.C_WEAR, OnRecvWear);
             register.Register(Command.C_PUTOFF, OnRecvPutoff);
-
+            register.Register(Command.C_SELL, OnRecvSell);
+            register.Register(Command.C_UNSELL, OnRecvUnSell);
             // DEBUG ..
             register.Register(Command.C_FIND_PATH, OnRecvFindPath);
 
